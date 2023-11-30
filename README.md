@@ -11,8 +11,9 @@ LET'S CODE A SIMPLE SHELL
 You have to handle the “end of file” condition (Ctrl+D)
 
 	WHAT WE NEED
- A header file that will contain a function prototype
- A function that displays a prompt
- A function that will read user input
- A function that will execute command
- A main source code file that will be the entry point
+
+ -A header file that will contain a function prototype
+ -A function that displays a prompt
+ -A function that will read user input
+ -A function that will execute command
+ -A main source code file that will be the entry point
