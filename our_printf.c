@@ -4,7 +4,7 @@
  * @content:  This is what will be displayed
  * Return: nothing since it is void
  */
-void our_printf(const char *content)
+void our_printf(const char *content, ...)
 {
 	write(STDOUT_FILENO, content, strlen(content));
 }

@@ -13,6 +13,7 @@ int main(void)
 		prompt();
 		input_from_user(cmd, sizeof(cmd));
 		command_executer(cmd);
+		parse_command_line();
 	}
 	return (0);
 }
