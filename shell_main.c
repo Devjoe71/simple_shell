@@ -40,6 +40,7 @@ int main(void)
 		if (arg_count > 0)
 		{
 		commandline(args[0], args);
+		pathfinder(args);
 		}
 		for (i = 0; i < arg_count; ++i)
 		{
