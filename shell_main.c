@@ -39,6 +39,12 @@ int main(void)
 		args[arg_count] = NULL;
 		if (arg_count > 0)
 		{
+			if (strcmp(args[0], "exit") == 0)
+			{
+				printout("exiting the shell\n");
+				break;
+			}
+		exit_the_shell(args);
 		commandline(args[0], args);
 		pathfinder(args);
 		}

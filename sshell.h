@@ -16,5 +16,6 @@ void printout(const char *message);
 /*void command_executer(const char *cmd);*/
 void commandline(char *input, char *args[]);
 void pathfinder(char *arguments[]);
+void exit_the_shell(char *args[]);
 
 #endif
