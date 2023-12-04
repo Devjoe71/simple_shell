@@ -9,13 +9,17 @@
 #include <sys/types.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdarg.h>
 
 #define MAX_ARGS 150
 
-void printout(const char *message);
+void printout(const char *message, ...);
 /*void command_executer(const char *cmd);*/
 void commandline(char *input, char *args[]);
 void pathfinder(char *arguments[]);
 void exit_the_shell(char *args[]);
+void Environment(void);
+extern char **environ;
+
 
 #endif

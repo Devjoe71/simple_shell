@@ -26,6 +26,12 @@ int main(void)
 		}
 		/* we will remove trailing newline*/
 		user_input[strcspn(user_input, "\n")] = '\0';
+
+		if (strcmp(user_input, "env") == 0)
+		{
+			Environment();
+			continue;
+		}
 		/*command_executer("ls -l");*/
 		/*tokenize user_input*/
 		arg_count = 0;
