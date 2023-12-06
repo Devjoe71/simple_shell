@@ -14,7 +14,7 @@ int main(void)
 
 	while (1)
 	{
-		printout("Simple_shell $");
+		printout("Simple_shell $ ");
 		/*read the line of user input*/
 
 		if (getline(&user_input, &size_of_input, stdin) == -1)
@@ -32,7 +32,7 @@ int main(void)
 			Environment();
 			continue;
 		}
-		/*command_executer("ls -l");*/
+		command_executer("ls -l");
 		/*tokenize user_input*/
 		arg_count = 0;
 		tkn = strtok(user_input, " ");
