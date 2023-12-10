@@ -27,12 +27,13 @@ int main(void)
 		/* we will remove trailing newline*/
 		user_input[strcspn(user_input, "\n")] = '\0';
 
+
 		if (strcmp(user_input, "env") == 0)
 		{
 			Environment();
 			continue;
 		}
-		command_executer("ls -l");
+		/*command_executer("ls -l");*/
 		/*tokenize user_input*/
 		arg_count = 0;
 		tkn = strtok(user_input, " ");
@@ -47,10 +48,11 @@ int main(void)
 		{
 			if (strcmp(args[0], "exit") == 0)
 			{
-				printout("exiting the shell\n");
+				/*printout("exiting the shell\n");*/
 				break;
 			}
 		exit_the_shell(args);
+		handles_path(user_input);
 		commandline(args[0], args);
 		pathfinder(args);
 		}
