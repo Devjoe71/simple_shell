@@ -14,27 +14,41 @@ void exec_cmd(const char *input)
 	}
 	else if (process_id == 0)
 	{
-		char **args = (char **)malloc(sizeof(char *) * 2);
-		
-		if (args == NULL)
-		{
-			perror("malloc");
-			exit(EXIT_FAILURE);
-		}
-		args[0] =strdup(input);
+		char **arg = (char **)malloc(2 *sizeof(char *));
 
-		if  (args[0] == NULL)
+		if (arg == NULL)
 		{
-			perror("stdup");
+			perror("Malloc");
 			exit(EXIT_FAILURE);
 		}
-		args[1] = NULL;
-		execvp(input,args);
-		perror("execvp");
-		exit(EXIT_FAILURE);
+		arg[0] =strdup(input);
+
+		if (arg[0] == NULL)
+		{
+			perror("strdup");
+			exit(EXIT_FAILURE);
+		}
+		arg[1] = NULL;
+
+		if (execve(input, arg, NULL) == -1)
+		{
+			perror(input);
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
-		wait(NULL);
+		int status;
+
+		waitpid(process_id, &status, 0);
+
+		if (WIFEXITED(status) && WEXITSTATUS(status) == EXIT_SUCCESS)
+		{
+			printout("successfully \n");
+		}
+		else
+		{
+			printout("unsuccessful \n");
+		}
 	}
 }

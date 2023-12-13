@@ -8,7 +8,16 @@ void user_input(char *input, size_t bufsize)
 {
 	if (getline(&input, &bufsize, stdin) == -1)
 	{
-		perror("faild while getting user input");
-		exit(EXIT_FAILURE);
+		if (feof(stdin))
+		{
+			printout("\n");
+			return;
+		}
+		else
+		{
+			perror("Error occured while getting input: getline");
+			exit(EXIT_FAILURE);
+		}
 	}
+	input[strcspn(input, "\n")] = '\0';
 }
