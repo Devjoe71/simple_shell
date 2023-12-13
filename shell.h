@@ -10,7 +10,7 @@
 
 /*PROTOTYPES*/
 void myprompt(void);
-void user_input(char *input, size_t bufsize);
+void user_input(char **input);
 void exec_cmd(const char *input);
 void printout(const char *input);
 #endif

@@ -2,15 +2,18 @@
 /**
  * user_input - func that takes user input
  * @input: user input/commands
- * @bufsize: size of the input
  */
-void user_input(char *input, size_t bufsize)
+void user_input(char **input)
 {
-	if (getline(&input, &bufsize, stdin) == -1)
+	size_t bufsize = 0;
+
+	if (getline(input, &bufsize, stdin) == -1)
 	{
 		if (feof(stdin))
 		{
 			printout("\n");
+			free(*input);
+			*input = NULL;
 			return;
 		}
 		else
@@ -19,5 +22,5 @@ void user_input(char *input, size_t bufsize)
 			exit(EXIT_FAILURE);
 		}
 	}
-	input[strcspn(input, "\n")] = '\0';
+	(*input)[strcspn(*input, "\n")] = '\0';
 }

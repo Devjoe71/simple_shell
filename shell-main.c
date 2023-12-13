@@ -5,12 +5,14 @@
  */
 int main(void)
 {
-	char input[100];
+	char *input = NULL;
 
 	while (1)
 	{
 		myprompt();
-		user_input(input, sizeof(input));
+		user_input(&input);
+		if (input == NULL)
+			break;
 		exec_cmd(input);
 	}
 	return (0);

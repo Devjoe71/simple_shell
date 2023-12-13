@@ -14,14 +14,14 @@ void exec_cmd(const char *input)
 	}
 	else if (process_id == 0)
 	{
-		char **arg = (char **)malloc(2 *sizeof(char *));
+		char **arg = (char **)malloc(2 * sizeof(char *));
 
 		if (arg == NULL)
 		{
 			perror("Malloc");
 			exit(EXIT_FAILURE);
 		}
-		arg[0] =strdup(input);
+		arg[0] = strdup(input);
 
 		if (arg[0] == NULL)
 		{
